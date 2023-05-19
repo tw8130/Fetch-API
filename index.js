@@ -1,6 +1,6 @@
 //fetchAPI
 // const fetch = require('node-fetch');
-//making http requests to list all the posts results
+//making http requests to get all the posts results
 
 const posts_url = "https://jsonplaceholder.typicode.com/posts";
 
@@ -87,3 +87,19 @@ async function filterPosts() {
     console.log(results);
 }
 filterPosts();
+
+
+//HTTP REQUEST TO LIST A SPECIFIC RESOURCE
+
+const posts_url4 = "https://jsonplaceholder.typicode.com/posts/1/comments";
+
+async function listPosts() {
+
+    let res = await fetch(posts_url4, {
+        method: 'GET',
+    })
+    let results = await res.json()
+    console.log(results);
+}
+
+listPosts();
