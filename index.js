@@ -8,13 +8,18 @@ const posts_url = "https://jsonplaceholder.typicode.com/posts";
 
 
 // async function getPosts() {
+
 //     let result = await fetch(posts_url);
 //     console.log(result);
 //     let posts = await result.json()
 //     console.log(posts);
 // }
 
+
+
 // getPosts()
+
+
 
 
 //HTTPS REQUEST TO POST 
@@ -25,14 +30,18 @@ const new_post = {
 }
 
 async function postPosts() {
-    let res = await fetch(posts_url, {
-        method: 'POST',
-        body: JSON.stringify(new_post)
-    })
+    try {
+        let res = await fetch(posts_url, {
+            method: 'POST',
+            body: JSON.stringify(new_post)
+        })
 
 
-    let results = await res.json()
-    console.log(results);
+        let results = await res.json()
+        console.log(results);
+    } catch (error) {
+        console.log('There was an error')
+    }
 }
 
 postPosts();
@@ -53,14 +62,18 @@ let posts1 = {
 // });
 
 async function putPosts() {
-    let res = await fetch(posts_url2, {
-        method: 'PUT',
-        body: JSON.stringify(posts1)
-    })
+    try {
+        let res = await fetch(posts_url2, {
+            method: 'PUT',
+            body: JSON.stringify(posts1)
+        })
 
 
-    let results2 = await res.json()
-    console.log(results2);
+        let results2 = await res.json()
+        console.log(results2);
+    } catch (error) {
+        console.log('There was an error');
+    }
 }
 
 putPosts();
@@ -68,10 +81,13 @@ putPosts();
 //HTTP REQUEST TO DELETE A POST
 
 async function deletePosts() {
-
-    let res = await fetch(posts_url2, {
-        method: 'DELETE',
-    })
+    try {
+        let res = await fetch(posts_url2, {
+            method: 'DELETE',
+        })
+    } catch (error) {
+        console.log('There was an error')
+    }
 };
 deletePosts();
 
@@ -79,12 +95,15 @@ deletePosts();
 //HTTP REQUEST TO FILTER A POST
 const posts_url3 = "https://jsonplaceholder.typicode.com/posts?userId=1";
 async function filterPosts() {
-
-    let res = await fetch(posts_url3, {
-        method: 'GET',
-    })
-    let results = await res.json()
-    console.log(results);
+    try {
+        let res = await fetch(posts_url3, {
+            method: 'GET',
+        })
+        let results = await res.json()
+        console.log(results);
+    } catch (error) {
+        console.log('There was an error')
+    }
 }
 filterPosts();
 
@@ -94,12 +113,16 @@ filterPosts();
 const posts_url4 = "https://jsonplaceholder.typicode.com/posts/1/comments";
 
 async function listPosts() {
+    try {
 
-    let res = await fetch(posts_url4, {
-        method: 'GET',
-    })
-    let results = await res.json()
-    console.log(results);
+        let res = await fetch(posts_url4, {
+            method: 'GET',
+        })
+        let results = await res.json()
+        console.log(results);
+    } catch (error) {
+        console.log('There was an error')
+    }
 }
 
 listPosts();
