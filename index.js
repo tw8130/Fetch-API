@@ -7,17 +7,23 @@ const posts_url = "https://jsonplaceholder.typicode.com/posts";
 // fetch(posts_url).then(res => res.json().then(results => console.log(results)));
 
 
-// async function getPosts() {
+async function getPosts() {
+    try {
 
-//     let result = await fetch(posts_url);
-//     console.log(result);
-//     let posts = await result.json()
-//     console.log(posts);
-// }
+        let result = await fetch(posts_url);
+        console.log(result);
+        let posts = await result.json()
+        console.log(posts);
+    } catch (error) {
+        // TypeError: Failed to fetch
+        console.log('There was an error fetching',
+            error);
+    }
+}
 
 
 
-// getPosts()
+getPosts()
 
 
 
@@ -40,7 +46,7 @@ async function postPosts() {
         let results = await res.json()
         console.log(results);
     } catch (error) {
-        console.log('There was an error')
+        console.log('There was an error', error)
     }
 }
 
@@ -72,7 +78,7 @@ async function putPosts() {
         let results2 = await res.json()
         console.log(results2);
     } catch (error) {
-        console.log('There was an error');
+        console.log('There was an error', error);
     }
 }
 
@@ -86,7 +92,7 @@ async function deletePosts() {
             method: 'DELETE',
         })
     } catch (error) {
-        console.log('There was an error')
+        console.log('There was an error', error)
     }
 };
 deletePosts();
@@ -102,7 +108,7 @@ async function filterPosts() {
         let results = await res.json()
         console.log(results);
     } catch (error) {
-        console.log('There was an error')
+        console.log('There was an error', error)
     }
 }
 filterPosts();
@@ -121,7 +127,7 @@ async function listPosts() {
         let results = await res.json()
         console.log(results);
     } catch (error) {
-        console.log('There was an error')
+        console.log('There was an error', error)
     }
 }
 
